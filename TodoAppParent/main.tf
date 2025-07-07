@@ -7,17 +7,17 @@ module "resource_group" {
 
 
 
-# module "virtual_network" {
-#   depends_on = [module.resource_group]
-#   source = "../module/azurerm_virtual_network"
+module "virtual_network" {
+  depends_on = [module.resource_group]
+  source = "../module/azurerm_virtual_network"
   
-#   virtual_network_name         = "TodoAppVNet"
-#   virtual_network_address_space = ["10.0.0.0/16"]
-#   virtual_network_location     = "canada central"
+  virtual_network_name         = "TodoAppVNet"
+  virtual_network_address_space = ["10.0.0.0/16"]
+  virtual_network_location     = "canada central"
 
-#   resource_group_name          = "todoappresourcegroup" # ye correct hona chahiye, not azurerm_resource_group_name
-#   resource_group_location      = "canada central"# ye correct hona chahiye, not azurerm_resource_group_location
-# }
+  resource_group_name          = "todoappresourcegroup" # ye correct hona chahiye, not azurerm_resource_group_name
+  resource_group_location      = "canada central"# ye correct hona chahiye, not azurerm_resource_group_location
+}
 # module "frontendsubnet" {
 #   depends_on = [module.virtual_network]
 #   source = "../module/azurerm_subnet"
